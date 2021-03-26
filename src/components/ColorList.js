@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import EditMenu from './EditMenu';
 import { axiosWithAuth } from '../helpers/axiosWithAuth';
 
@@ -23,7 +22,7 @@ const ColorList = ({ colors, updateColors }) => {
       .put(`/colors/${colorToEdit.id}`, colorToEdit)
       .then((res) => {
         updateColors(colors.map((color) => {
-          if (color.id == res.data.id) {
+          if (color.id === res.data.id) {
             return res.data;
           } else {
             return color;
